@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'styled.css' %}">
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <div class="title">Registration Form</div>
+      <form action="register" method="post">
+         {% csrf_token %}
+        <div class="field">
+          <input type="text" name="username" placeholder="Username">
+        </div>
+        <div class="field">
+          <input type="text" name="first_name" placeholder="first name">
+        </div>
+         <div class="field">
+          <input type="password" name="password1" placeholder="Enter Password">
+        </div>
+          <div class="field">
+          <input type="password" name="password2" placeholder="Re Enter Password">
+        </div>
+
+        <div class="field">
+          <input type="submit" value="Login">
+        </div>
+      </form>
+    </div>
+  </div>
+    <div>
+                        {% for message in messages %}
+                             <h4>{{message}}</h4>
+                                    {% endfor %}
+                                </div>
+  </body>
+</html>
